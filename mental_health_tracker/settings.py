@@ -1,3 +1,4 @@
+import os
 """
 Django settings for mental_health_tracker project.
 
@@ -23,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dnnk2#qqubhf9mz@l375mj2z&n+g-t46uwsx%5j87d3c6*%8lr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+PRODUCTION = os.getenv("PRODUCTION", False)
+DEBUG = not PRODUCTION
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "nadira-aliya-mentalhealthtracker.pbp.cs.ui.ac.id"]
 
